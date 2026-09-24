@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#eee1c6" />
+    <meta name="description" content="一张可以骑起来的复古海岸明信片：鹈鹕正蹬着珊瑚红自行车穿过海风。" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23eee1c6'/%3E%3Ccircle cx='45' cy='18' r='9' fill='%23e8ad38'/%3E%3Cpath d='M12 34c0-12 9-20 22-20 9 0 15 5 15 12 0 5-3 9-7 12l8 2-9 4c-4 7-11 11-19 11-6 0-10-3-10-8 0-4 2-8 5-11z' fill='%231b1b19'/%3E%3Cpath d='M36 26c6 0 12 2 18 7-8 1-14 4-18 9-3-4-3-10 0-16z' fill='%23ef684e'/%3E%3Ccircle cx='38' cy='23' r='2' fill='%23f4ead4'/%3E%3C/svg%3E" />
+    <title>鹈鹕的两轮海岸｜Pelican on Two Wheels</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="scene" aria-label="鹈鹕骑自行车的互动 3D 场景"></div>
+      <div class="print-grain" aria-hidden="true"></div>
+      <div class="screen-print" aria-hidden="true"></div>
+      <div id="speed-lines" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+
+      <header class="masthead" aria-label="明信片页眉">
+        <a class="wordmark" href="#ride-panel" aria-label="前往骑行控制区">
+          <span class="wordmark__mark">P</span>
+          <span>POSTCARD RADIO</span>
+        </a>
+        <div class="masthead__route">
+          <span>37° 46' N</span>
+          <span class="masthead__route-line"></span>
+          <span>122° 25' W</span>
+        </div>
+        <p class="masthead__issue">COASTAL EDITION · Nº 067</p>
+      </header>
+
+      <main class="hero" aria-labelledby="page-title">
+        <div class="hero__eyebrow"><span>一张正在被海风翻动的明信片</span></div>
+        <h1 id="page-title">
+          <span>PELICAN</span>
+          <span class="hero__title-accent">ON TWO <em>WHEELS</em></span>
+        </h1>
+        <p class="hero__copy">把长喙迎向风，把海盐装进行囊。<br />今天，鹈鹕选择用两个轮子去旅行。</p>
+        <div class="hero__seal" aria-hidden="true">
+          <span>RIDE</span>
+          <strong>慢一点</strong>
+          <span>也浪漫</span>
+        </div>
+      </main>
+
+      <aside class="utility" aria-label="场景工具">
+        <button id="sound-toggle" class="icon-button" type="button" aria-label="开启环境声音" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6L8 10H4Zm12.2-.8a5.2 5.2 0 0 1 0 5.6M18.8 6.7a9 9 0 0 1 0 10.6"/></svg>
+        </button>
+        <button id="reset-view" class="icon-button" type="button" aria-label="重置 3D 视角">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 8a8 8 0 1 0 1 6M19 3v5h-5"/></svg>
+        </button>
+      </aside>
+
+      <div class="interaction-hint" id="interaction-hint" aria-hidden="true">
+        <span class="interaction-hint__mouse"><i></i></span>
+        <span>拖动环视 · 滚轮靠近</span>
+      </div>
+
+      <aside class="telemetry" aria-label="骑行数据">
+        <div><span>巡航</span><strong><b id="speed-value">24</b><small> km/h</small></strong></div>
+        <div><span>风向</span><strong id="wind-value">WSW 03</strong></div>
+        <div><span>画幅</span><strong>1967 · 35MM</strong></div>
+      </aside>
+
+      <section class="control-deck" id="ride-panel" aria-label="骑行控制台">
+        <div class="postmark postmark--top" aria-hidden="true">
+          <span>WEST COAST POST</span>
+          <strong>JUL · 24</strong>
+          <span>SAN FRANCISCO, CA</span>
+        </div>
+
+        <div class="control-deck__intro">
+          <span>01</span>
+          <div>
+            <strong>选择邮戳</strong>
+            <small>改变光线，不改变目的地</small>
+          </div>
+        </div>
+
+        <div class="environment-stamps" role="group" aria-label="海岸时间">
+          <button class="environment-stamp is-active" type="button" data-environment="morning" aria-pressed="true">
+            <span>06A</span><strong>晨雾</strong><small>07:10</small>
+          </button>
+          <button class="environment-stamp" type="button" data-environment="noon" aria-pressed="false">
+            <span>12B</span><strong>正午</strong><small>13:04</small>
+          </button>
+          <button class="environment-stamp" type="button" data-environment="sunset" aria-pressed="false">
+            <span>18C</span><strong>落日</strong><small>19:38</small>
+          </button>
+        </div>
+
+        <div class="speed-control">
+          <label for="speed-range"><span>骑行速度</span><output id="speed-output" for="speed-range">24 km/h</output></label>
+          <input id="speed-range" type="range" min="10" max="38" step="1" value="24" />
+          <div class="speed-control__ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+
+        <button id="ride-toggle" class="ride-button" type="button" aria-pressed="true">
+          <span class="ride-button__icon" aria-hidden="true">
+            <svg class="icon-pause" viewBox="0 0 24 24"><path d="M8 6v12M16 6v12"/></svg>
+            <svg class="icon-play" viewBox="0 0 24 24"><path d="m9 6 9 6-9 6V6Z"/></svg>
+          </span>
+          <span class="ride-button__copy"><small>ROUTE 067</small><strong id="ride-label">暂歇片刻</strong></span>
+          <span class="ride-button__arrow" aria-hidden="true">→</span>
+        </button>
+      </section>
+
+      <div class="loading" id="loading" role="status" aria-live="polite">
+        <div class="loading__stamp">
+          <span>POST IN MOTION</span>
+          <strong>67</strong>
+          <small>PELICAN, CAL.</small>
+        </div>
+        <p>正在把海风折进明信片…</p>
+      </div>
+
+      <section class="fallback" id="fallback" hidden>
+        <p class="fallback__code">WEBGL / 404</p>
+        <h2>这枚邮戳需要 3D 才能显影</h2>
+        <p>请换用支持 WebGL 的现代浏览器，再沿海岸线骑行。</p>
+        <button type="button" onclick="location.reload()">重新寄出</button>
+      </section>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
