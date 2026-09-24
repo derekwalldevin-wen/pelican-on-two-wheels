@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:smoke": "node scripts/smoke-test.mjs"
+    "test:smoke": "node scripts/smoke-test.mjs",
+    "verify:live": "node scripts/verify-live.mjs"
   },
   "dependencies": {
     "three": "0.170.0"

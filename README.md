@@ -2,6 +2,8 @@
 
 一个纯静态 Three.js 互动 3D 明信片。鹈鹕、车、海岸、灯塔、云与海面均由程序化几何生成，不依赖外部 3D 模型。
 
+**线上体验：** https://derekwalldevin-wen.github.io/pelican-on-two-wheels/
+
 ## 本地运行
 
 ```bash
